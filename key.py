@@ -38,8 +38,7 @@ def searchstr(strlist):
                 page = 1
             else:
                 page = x * psize
-            if(page == 65):
-                time.sleep(30)        
+        
             url =('https://ajax.googleapis.com/ajax/services/search/web'
                           '?v=1.0&q=%s&rsz=%s&start=%s') %(urllib.quote(seachstr),psize,page)
             try:
@@ -70,6 +69,8 @@ def searchstr(strlist):
                         grlist.append(n)
                         urllist.append(minfo['url'])
                         weblist.append(minfo['url'])
+                        if(len(urllist) % 100):
+                            time.sleep(30)
                    
     createNewData(searchlist,grlist,urllist,weblist)
 
@@ -124,7 +125,7 @@ def createNewData(searchlist,grlist,urllist,weblist):
 
     #保存文件
     fname = "data" + time.strftime('%Y-%m-%d',time.localtime(time.time())) + ".xls";
-    print "FileName is："+fname
+    print "FileName is:"+fname
     file.save(fname) 
 
 def main():
