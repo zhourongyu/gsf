@@ -52,7 +52,8 @@ def searchstr(strlist):
                 infoaaa = results['responseData']['results']
                 #print results['responseData']['cursor']
             except Exception,e:
-                print e
+               # print e
+               pass
             else:
                 #定义Google Rank
                 n = psize*x
@@ -62,7 +63,12 @@ def searchstr(strlist):
                     
                     pattern = re.compile(r'dhgate|lightinthebox|madeinchina|aliexpress') 
                     result = re.compile(r'https?://[^/]+?\.([^\.]+)\.[^\.]+(/|$)')
-                    website = result.findall(minfo['url'])[0][0];
+                    if(len(result.findall(minfo['url'])) != 0):
+                        print minfo['url']
+                        print result.findall(minfo['url'])
+                        website = result.findall(minfo['url'])[0][0];
+                    else:
+                        website = minfo['url']
                     #print '%d'%n + "\t" + website + "\t" + minfo['url']
                     match = pattern.search(minfo['url']) 
                     if match: 
@@ -71,9 +77,9 @@ def searchstr(strlist):
                         grlist.append(n)
                         urllist.append(minfo['url'])
                         weblist.append(website)
-            time.sleep(10)
+                    time.sleep(5)
+            
     createNewData(searchlist,grlist,urllist,weblist)
-
 
 #从excel的index标签获取值
 def excel_data_byindex(file='key.xlsx',colindex=0,by_index=0):
