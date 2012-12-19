@@ -38,7 +38,7 @@ def searchstr(strlist):
                 page = 1
             else:
                 page = x * psize
-            url =('https://ajax.googleapis.com/ajax/services/search/web'
+            url =('http://ajax.googleapis.com/ajax/services/search/web'
                           '?v=1.0&q=%s&rsz=%s&start=%s') %(urllib.quote(seachstr),psize,page)
             try:
                 request = urllib2.Request(
@@ -62,14 +62,15 @@ def searchstr(strlist):
                     
                     pattern = re.compile(r'dhgate|lightinthebox|madeinchina|aliexpress') 
                     result = re.compile(r'https?://[^/]+?\.([^\.]+)\.[^\.]+(/|$)')
-                    website = minfo['url'];
-                    print '%d'%n + "\t" + result.findall(website)[0] + "\t" + minfo['url']
+                    website = result.findall(minfo['url'])[0][0];
+                    #print '%d'%n + "\t" + website + "\t" + minfo['url']
                     match = pattern.search(minfo['url']) 
                     if match: 
+                        print '%d'%n + "\t" + website
                         searchlist.append(seachstr)
                         grlist.append(n)
                         urllist.append(minfo['url'])
-                        weblist.append(minfo['url'])
+                        weblist.append(website)
             time.sleep(10)
     createNewData(searchlist,grlist,urllist,weblist)
 
