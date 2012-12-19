@@ -31,7 +31,7 @@ def searchstr(strlist):
     weblist.append('Website')
     for str in strlist:
         seachstr = str
-        print "search KeyWords:" seachstr
+        print "search KeyWords: " + seachstr
         for x in range(8):
            # print "page:%s"%(x+1)
             if(x==0):
