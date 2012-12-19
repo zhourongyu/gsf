@@ -31,7 +31,7 @@ def searchstr(strlist):
     weblist.append('Website')
     for str in strlist:
         seachstr = str
-        print seachstr
+        print "search KeyWords:" seachstr
         for x in range(8):
            # print "page:%s"%(x+1)
             if(x==0):
@@ -52,8 +52,8 @@ def searchstr(strlist):
                 infoaaa = results['responseData']['results']
                 #print results['responseData']['cursor']
             except Exception,e:
-               # print e
-               pass
+                print e
+                #pass
             else:
                 #定义Google Rank
                 n = psize*x
@@ -64,15 +64,13 @@ def searchstr(strlist):
                     pattern = re.compile(r'dhgate|lightinthebox|madeinchina|aliexpress') 
                     result = re.compile(r'https?://[^/]+?\.([^\.]+)\.[^\.]+(/|$)')
                     if(len(result.findall(minfo['url'])) != 0):
-                        print minfo['url']
-                        print result.findall(minfo['url'])
                         website = result.findall(minfo['url'])[0][0];
                     else:
                         website = minfo['url']
                     #print '%d'%n + "\t" + website + "\t" + minfo['url']
                     match = pattern.search(minfo['url']) 
                     if match: 
-                        print '%d'%n + "\t" + website
+                        print '%d'%n + "\t" + website +"\t" + minfo['url']
                         searchlist.append(seachstr)
                         grlist.append(n)
                         urllist.append(minfo['url'])
