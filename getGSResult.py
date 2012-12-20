@@ -4,6 +4,7 @@ import urllib2,urllib
 import simplejson
 import xlrd,xlwt
 import os,re,time
+import shutil
 
 #获取excel数据
 def open_excel(file= 'key.xlsx'):
@@ -128,7 +129,7 @@ def createNewData(searchlist,grlist,urllist,weblist):
     #保存文件
     fname = "data" + time.strftime('%Y-%m-%d',time.localtime(time.time())) + ".xls";
     print "FileName is:"+fname
-    file.save(fname) 
+    file.save("keywords/"+fname) 
 
 def main():
     #名为key.xlsx的excel文件的第一个tab下的第二列
