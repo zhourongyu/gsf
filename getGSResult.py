@@ -129,7 +129,7 @@ def createNewData(searchlist,grlist,urllist,weblist):
     #保存文件
     fname = "data" + time.strftime('%Y-%m-%d',time.localtime(time.time())) + ".xls";
     print "FileName is:"+fname
-    file.save("keywords/"+fname) 
+    file.save("dataFiles/"+fname) 
 
 def main():
     #名为key.xlsx的excel文件的第一个tab下的第二列
