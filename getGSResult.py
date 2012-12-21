@@ -133,7 +133,7 @@ def createNewData(searchlist,grlist,urllist,weblist):
 
 def main():
     #名为key.xlsx的excel文件的第一个tab下的第二列
-    strlist = excel_data_byindex("key.xlsx",1,0)
+    strlist = excel_data_byindex("keywords.xlsx",1,0)
     print len(strlist)
     searchstr(strlist)
     #createNewData()
