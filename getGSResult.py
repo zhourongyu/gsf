@@ -76,7 +76,7 @@ def searchstr(strlist):
                         grlist.append(n)
                         urllist.append(minfo['url'])
                         weblist.append(website)
-                time.sleep(5)
+                time.sleep(30)
             
     createNewData(searchlist,grlist,urllist,weblist)
 
