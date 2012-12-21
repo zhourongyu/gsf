@@ -81,9 +81,9 @@ def searchstr(strlist):
     createNewData(searchlist,grlist,urllist,weblist)
 
 #从excel的index标签获取值
-def excel_data_byindex(file='key.xlsx',colindex=0,by_index=0):
+def excel_data_byindex(file='keywords.xlsx',colindex=0,by_index=0):
     #打开excel表单
-    excel = open_excel()
+    excel = open_excel(file)
     #检查表单名字
     excel.sheet_names()
     #得到第一张表单：
@@ -133,7 +133,7 @@ def createNewData(searchlist,grlist,urllist,weblist):
 
 def main():
     #名为key.xlsx的excel文件的第一个tab下的第二列
-    strlist = excel_data_byindex("keywords.xlsx",1,0)
+    strlist = excel_data_byindex("/home/lw/keywords.xlsx",1,0)
     print len(strlist)
     searchstr(strlist)
     #createNewData()
